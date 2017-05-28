@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MVC</string>
+    <string name="check_info">用户名或密码不能为空</string>
+    <string name="welcome">欢迎回来:</string>
+    <string name="login_fail">用户名或密码输入有误</string>
+</resources>
