@@ -19,16 +19,16 @@ import com.itheima.takeout.ui.fragment.UserFragment;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
 
 
-    @InjectView(R.id.main_fragment_container)
+    @BindView(R.id.main_fragment_container)
     FrameLayout mainFragmentContainer;
 
     // 底部导航容器
-    @InjectView(R.id.main_bottome_switcher_container)
+    @BindView(R.id.main_bottome_switcher_container)
     LinearLayout mainBottomeSwitcherContainer;
 
 
@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         init();
         setListener();

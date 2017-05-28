@@ -13,34 +13,37 @@ import android.widget.TextView;
 import com.itheima.takeout.R;
 import com.itheima.takeout.ui.activity.LoginActivity;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 
 /**
  * 用户信息展示界面
  */
 public class UserFragment extends BaseFragment {
-    @InjectView(R.id.tv_user_setting)
+    @BindView(R.id.tv_user_setting)
     ImageView tvUserSetting;
-    @InjectView(R.id.iv_user_notice)
+    @BindView(R.id.iv_user_notice)
     ImageView ivUserNotice;
-    @InjectView(R.id.login)
+    @BindView(R.id.login)
     ImageView login;
-    @InjectView(R.id.username)
+    @BindView(R.id.username)
     TextView username;
-    @InjectView(R.id.phone)
+    @BindView(R.id.phone)
     TextView phone;
-    @InjectView(R.id.ll_userinfo)
+    @BindView(R.id.ll_userinfo)
     LinearLayout llUserinfo;
-    @InjectView(R.id.address)
+    @BindView(R.id.address)
     ImageView address;
+
+    private Unbinder unbinder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, null);
-        ButterKnife.inject(this, view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -53,7 +56,7 @@ public class UserFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        unbinder.unbind();
     }
 
     @OnClick(R.id.login)

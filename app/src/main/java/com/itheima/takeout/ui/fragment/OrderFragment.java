@@ -20,16 +20,17 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-
+import butterknife.Unbinder;
 
 /**
  * 订单列表
  */
 public class OrderFragment extends BaseFragment implements IView{
-    @InjectView(R.id.rv_order_list)
+    @BindView(R.id.rv_order_list)
     RecyclerView rvOrderList;
+    private Unbinder unbinder;
 
     OrderRecyclerViewAdapter adapter;
 
@@ -46,7 +47,7 @@ public class OrderFragment extends BaseFragment implements IView{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_order, null);
-        ButterKnife.inject(this, view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -68,7 +69,7 @@ public class OrderFragment extends BaseFragment implements IView{
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        unbinder.unbind();
     }
 
     @Override

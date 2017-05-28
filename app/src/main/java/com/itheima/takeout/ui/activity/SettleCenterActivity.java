@@ -23,42 +23,42 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
  * 结算中心
  */
 public class SettleCenterActivity extends BaseActivity {
-    @InjectView(R.id.ib_back)
+    @BindView(R.id.ib_back)
     ImageButton ibBack;
-    @InjectView(R.id.tv_name)
+    @BindView(R.id.tv_name)
     TextView tvName;
-    @InjectView(R.id.tv_sex)
+    @BindView(R.id.tv_sex)
     TextView tvSex;
-    @InjectView(R.id.tv_phone)
+    @BindView(R.id.tv_phone)
     TextView tvPhone;
-    @InjectView(R.id.tv_label)
+    @BindView(R.id.tv_label)
     TextView tvLabel;
-    @InjectView(R.id.tv_address)
+    @BindView(R.id.tv_address)
     TextView tvAddress;
-    @InjectView(R.id.ll_selected_address_container)
+    @BindView(R.id.ll_selected_address_container)
     LinearLayout llSelectedAddressContainer;
-    @InjectView(R.id.tv_select_address)
+    @BindView(R.id.tv_select_address)
     TextView tvSelectAddress;
-    @InjectView(R.id.rl_location)
+    @BindView(R.id.rl_location)
     RelativeLayout rlLocation;
-    @InjectView(R.id.iv_logo)
+    @BindView(R.id.iv_logo)
     ImageView ivLogo;
-    @InjectView(R.id.tv_seller_name)
+    @BindView(R.id.tv_seller_name)
     TextView tvSellerName;
-    @InjectView(R.id.ll_select_goods)
+    @BindView(R.id.ll_select_goods)
     LinearLayout llSelectGoods;
-    @InjectView(R.id.tv_send_price)
+    @BindView(R.id.tv_send_price)
     TextView tvSendPrice;
-    @InjectView(R.id.tv_count_price)
+    @BindView(R.id.tv_count_price)
     TextView tvCountPrice;
-    @InjectView(R.id.tv_submit)
+    @BindView(R.id.tv_submit)
     TextView tvSubmit;
 
     // 功能列表
@@ -79,7 +79,7 @@ public class SettleCenterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settle_center);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
 
         setData();

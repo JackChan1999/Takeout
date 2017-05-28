@@ -32,7 +32,7 @@ import com.itheima.takeout.R;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 定位的Activity
@@ -215,14 +215,14 @@ public class SelectLocationActivity extends BaseActivity implements LocationSour
         }
 
         class ViewHolder extends RecyclerView.ViewHolder{
-            @InjectView(R.id.tv_title)
+            @BindView(R.id.tv_title)
             TextView tvTitle;
-            @InjectView(R.id.tv_snippet)
+            @BindView(R.id.tv_snippet)
             TextView tvSnippet;
 
             ViewHolder(View view) {
                 super(view);
-                ButterKnife.inject(this, view);
+                ButterKnife.bind(this, view);
             }
             PoiItem data;
             public void setData(PoiItem item){

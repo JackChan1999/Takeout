@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.itheima.takeout.MyApplication;
 import com.itheima.takeout.R;
-import com.itheima.takeout.dagger.conponent.fragment.DaggerGoodsFragmentConponent;
-import com.itheima.takeout.dagger.module.fragment.GoodsFragmentModule;
 import com.itheima.takeout.model.net.bean.GoodsInfo;
 import com.itheima.takeout.model.net.bean.GoodsTypeInfo;
 import com.itheima.takeout.presenter.fragment.GoodsFragmentPresenter;
@@ -25,8 +23,9 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Unbinder;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
@@ -42,10 +41,13 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  * 注意事项：频繁的刷新头容器
  */
 public class GoodsFragment_bat_load_data extends BaseFragment implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
-    @InjectView(R.id.shl)
+    @BindView(R.id.shl)
     StickyListHeadersListView shl;
-    @InjectView(R.id.lv)
+    @BindView(R.id.lv)
     ListView lv;
+
+    private Unbinder unbinder;
+
     private MyGroupAdapter groupAdapter;
     private MyHeadAdapter headAdapter;
 
@@ -62,7 +64,7 @@ public class GoodsFragment_bat_load_data extends BaseFragment implements Adapter
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_goods, null);
-        ButterKnife.inject(this, view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -80,7 +82,7 @@ public class GoodsFragment_bat_load_data extends BaseFragment implements Adapter
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        unbinder.unbind();
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.itheima.takeout.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -20,8 +19,8 @@ import com.itheima.takeout.ui.views.RecycleViewDivider;
 import com.itheima.takeout.utils.NumberFormatUtils;
 import com.squareup.picasso.Picasso;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
@@ -29,15 +28,15 @@ import butterknife.OnClick;
  */
 public class CartActivity extends BaseActivity {
 
-    @InjectView(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @InjectView(R.id.tv_total)
+    @BindView(R.id.tv_total)
     TextView tvTotal;
-    @InjectView(R.id.tv_money)
+    @BindView(R.id.tv_money)
     TextView tvMoney;
-    @InjectView(R.id.button)
+    @BindView(R.id.button)
     Button button;
-    @InjectView(R.id.cart_rv)
+    @BindView(R.id.cart_rv)
     RecyclerView cartRv;
     private MyCartAdapter adapter;
 
@@ -45,7 +44,7 @@ public class CartActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         toolbar.setTitle("购物车");
         setSupportActionBar(toolbar);
@@ -66,7 +65,7 @@ public class CartActivity extends BaseActivity {
 
     @OnClick(R.id.button)
     public void onClick() {
-        // TODO 登陆入口一
+        // 登陆入口一
         // 判断是否登陆了
         // 如果登陆了，去订单生成界面
         // 没有登陆，去用户登陆界面
@@ -101,20 +100,20 @@ public class CartActivity extends BaseActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            @InjectView(R.id.item_iv)
+            @BindView(R.id.item_iv)
             ImageView itemIv;
-            @InjectView(R.id.item_tv_name)
+            @BindView(R.id.item_tv_name)
             TextView itemTvName;
-            @InjectView(R.id.item_tv_price)
+            @BindView(R.id.item_tv_price)
             TextView itemTvPrice;
-            @InjectView(R.id.item_tv_num)
+            @BindView(R.id.item_tv_num)
             TextView itemTvNum;
 
             private GoodsInfo data;
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                ButterKnife.inject(this, this.itemView);
+                ButterKnife.bind(this, this.itemView);
             }
 
             public void setData(GoodsInfo data) {

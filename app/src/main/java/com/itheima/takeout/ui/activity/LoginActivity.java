@@ -15,7 +15,7 @@ import com.itheima.takeout.utils.PromptManager;
 import com.itheima.takeout.utils.SMSUtil;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -43,17 +43,17 @@ App Secret：f5f8e5c52e11337353979972c1b08cae
     private static final int SENDING = -9;
     private static final int RESEND = -8;
     private static final String TAG = "LoginActivity";
-    @InjectView(R.id.iv_user_back)
+    @BindView(R.id.iv_user_back)
     ImageView ivUserBack;
-    @InjectView(R.id.iv_user_password_login)
+    @BindView(R.id.iv_user_password_login)
     TextView ivUserPasswordLogin;
-    @InjectView(R.id.et_user_phone)
+    @BindView(R.id.et_user_phone)
     EditText etUserPhone;
-    @InjectView(R.id.tv_user_code)
+    @BindView(R.id.tv_user_code)
     TextView tvUserCode;
-    @InjectView(R.id.et_user_code)
+    @BindView(R.id.et_user_code)
     EditText etUserCode;
-    @InjectView(R.id.login)
+    @BindView(R.id.login)
     TextView login;
     private java.lang.String phone;
     private int i = 60;//倒计时
@@ -74,7 +74,7 @@ App Secret：f5f8e5c52e11337353979972c1b08cae
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         //权限校验:
         SMSUtil.checkPermission(this);

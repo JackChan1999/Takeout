@@ -26,7 +26,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
@@ -103,23 +103,23 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
         View itemView;
         private GoodsInfo data;
 
-        @InjectView(R.id.iv_icon)
+        @BindView(R.id.iv_icon)
         ImageView ivIcon;
-        @InjectView(R.id.tv_name)
+        @BindView(R.id.tv_name)
         TextView tvName;
-        @InjectView(R.id.tv_zucheng)
+        @BindView(R.id.tv_zucheng)
         TextView tvZucheng;
-        @InjectView(R.id.tv_yueshaoshounum)
+        @BindView(R.id.tv_yueshaoshounum)
         TextView tvYueshaoshounum;
-        @InjectView(R.id.tv_newprice)
+        @BindView(R.id.tv_newprice)
         TextView tvNewprice;
-        @InjectView(R.id.tv_oldprice)
+        @BindView(R.id.tv_oldprice)
         TextView tvOldprice;
-        @InjectView(R.id.ib_minus)
+        @BindView(R.id.ib_minus)
         ImageButton ibMinus;
-        @InjectView(R.id.tv_money)
+        @BindView(R.id.tv_money)
         TextView tvCount;
-        @InjectView(R.id.ib_add)
+        @BindView(R.id.ib_add)
         ImageButton ibAdd;
         private FrameLayout container;
         private TextView count;
@@ -127,7 +127,7 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
 
         public ItemViewHolder(View itemView) {
             this.itemView = itemView;
-            ButterKnife.inject(this, this.itemView);
+            ButterKnife.bind(this, this.itemView);
         }
 
         @OnClick({R.id.ib_minus, R.id.ib_add})

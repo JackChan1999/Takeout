@@ -29,11 +29,10 @@ import com.itheima.takeout.ui.adapter.HomeRecyclerViewAdapter;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
-
-import static com.itheima.takeout.R.id.address;
+import butterknife.Unbinder;
 
 
 /**
@@ -49,15 +48,16 @@ import static com.itheima.takeout.R.id.address;
  */
 public class HomeFragment extends BaseFragment implements AMapLocationListener {
 
-
-    @InjectView(R.id.rv_home)
+    @BindView(R.id.rv_home)
     RecyclerView rvHome;
-    @InjectView(R.id.home_tv_address)
+    @BindView(R.id.home_tv_address)
     TextView homeTvAddress;
-    @InjectView(R.id.ll_title_search)
+    @BindView(R.id.ll_title_search)
     LinearLayout llTitleSearch;
-    @InjectView(R.id.ll_title_container)
+    @BindView(R.id.ll_title_container)
     LinearLayout llTitleContainer;
+
+    private Unbinder unbinder;
 
     @Inject
     HomeFragmentPresenter presenter;
@@ -79,7 +79,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, null);
-        ButterKnife.inject(this, view);
+        unbinder= ButterKnife.bind(this, view);
         return view;
     }
 
@@ -167,7 +167,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        unbinder.unbind();
     }
 
     public void failed(String msg) {

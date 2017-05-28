@@ -20,7 +20,7 @@ import com.itheima.takeout.ui.fragment.SellerFragment;
 import com.itheima.takeout.utils.UiUtils;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 商家详细信息展示
@@ -37,11 +37,11 @@ import butterknife.InjectView;
  */
 public class SellerDetailActivity extends BaseActivity {
 
-    @InjectView(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @InjectView(R.id.tabs)
+    @BindView(R.id.tabs)
     TabLayout tabs;
-    @InjectView(R.id.vp)
+    @BindView(R.id.vp)
     ViewPager vp;
 
 
@@ -53,7 +53,7 @@ public class SellerDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_detail);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         Intent intent = getIntent();
 

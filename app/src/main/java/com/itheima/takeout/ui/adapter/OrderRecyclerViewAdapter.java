@@ -17,15 +17,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by itheima.
  */
 public class OrderRecyclerViewAdapter extends RecyclerView.Adapter {
     private List<Order> orders;
-
+    
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
@@ -70,25 +70,25 @@ public class OrderRecyclerViewAdapter extends RecyclerView.Adapter {
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         private Order order;
 
-        @InjectView(R.id.tv_order_item_seller_name)
+        @BindView(R.id.tv_order_item_seller_name)
         TextView tvOrderItemSellerName;
-        @InjectView(R.id.iv_order_item_seller_logo)
+        @BindView(R.id.iv_order_item_seller_logo)
         ImageView ivOrderItemSellerLogo;
-        @InjectView(R.id.tv_order_item_type)
+        @BindView(R.id.tv_order_item_type)
         TextView tvOrderItemType;
-        @InjectView(R.id.tv_order_item_time)
+        @BindView(R.id.tv_order_item_time)
         TextView tvOrderItemTime;
-        @InjectView(R.id.tv_order_item_foods)
+        @BindView(R.id.tv_order_item_foods)
         TextView tvOrderItemFoods;
-        @InjectView(R.id.tv_order_item_money)
+        @BindView(R.id.tv_order_item_money)
         TextView tvOrderItemMoney;
 
-        @InjectView(R.id.tv_order_item_multi_function)
+        @BindView(R.id.tv_order_item_multi_function)
         TextView tvOrderItemMultiFunction;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
         }
 
         public void setOrder(Order order) {

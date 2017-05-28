@@ -22,7 +22,7 @@ import com.itheima.takeout.model.dao.bean.AddressBean;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -38,11 +38,11 @@ public class ReceiptAddressActivity extends BaseActivity {
     // 获取网络地址，获取本地地址
     // 如果网络地址获取到后，存储到本地
 
-    @InjectView(R.id.ib_back)
+    @BindView(R.id.ib_back)
     ImageButton ibBack;
-    @InjectView(R.id.rv_receipt_address)
+    @BindView(R.id.rv_receipt_address)
     RecyclerView rvReceiptAddress;
-    @InjectView(R.id.tv_add_address)
+    @BindView(R.id.tv_add_address)
     TextView tvAddAddress;
 
     private MyAdapter adapter;
@@ -52,7 +52,7 @@ public class ReceiptAddressActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receipt_address);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -144,23 +144,23 @@ public class ReceiptAddressActivity extends BaseActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            @InjectView(R.id.tv_name)
+            @BindView(R.id.tv_name)
             TextView tvName;
-            @InjectView(R.id.tv_sex)
+            @BindView(R.id.tv_sex)
             TextView tvSex;
-            @InjectView(R.id.tv_phone)
+            @BindView(R.id.tv_phone)
             TextView tvPhone;
-            @InjectView(R.id.tv_label)
+            @BindView(R.id.tv_label)
             TextView tvLabel;
-            @InjectView(R.id.tv_address)
+            @BindView(R.id.tv_address)
             TextView tvAddress;
-            @InjectView(R.id.iv_edit)
+            @BindView(R.id.iv_edit)
             ImageView ivEdit;
             private AddressBean data;
 
             ViewHolder(View view) {
                 super(view);
-                ButterKnife.inject(this, view);
+                ButterKnife.bind(this, view);
             }
 
             @OnClick(R.id.iv_edit)

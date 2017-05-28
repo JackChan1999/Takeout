@@ -1,8 +1,7 @@
 package com.itheima.takeout.ui.activity;
 
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +21,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-
-import static android.R.attr.data;
 
 /**
  * 在线支付界面
@@ -37,19 +34,19 @@ public class OnlinePayActivity extends BaseActivity {
 
 
 
-    @InjectView(R.id.ib_back)
+    @BindView(R.id.ib_back)
     ImageButton ibBack;
-    @InjectView(R.id.tv_residualTime)
+    @BindView(R.id.tv_residualTime)
     TextView tvResidualTime;
-    @InjectView(R.id.tv_order_name)
+    @BindView(R.id.tv_order_name)
     TextView tvOrderName;
-    @InjectView(R.id.ll_order_detail)
+    @BindView(R.id.ll_order_detail)
     LinearLayout llOrderDetail;
-    @InjectView(R.id.tv_pay_money)
+    @BindView(R.id.tv_pay_money)
     TextView tvPayMoney;
-    @InjectView(R.id.ll_pay_type_container)
+    @BindView(R.id.ll_pay_type_container)
     LinearLayout llPayTypeContainer;
-    @InjectView(R.id.bt_confirm_pay)
+    @BindView(R.id.bt_confirm_pay)
     Button btConfirmPay;
 
 
@@ -64,7 +61,7 @@ public class OnlinePayActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_pay);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         orderId = getIntent().getStringExtra("orderId");
         tvOrderName.setText("第"+orderId+"号订单");
     }

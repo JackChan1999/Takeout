@@ -27,9 +27,10 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 
@@ -44,14 +45,17 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  * 注意事项：频繁的刷新头容器
  */
 public class GoodsFragment extends BaseFragment implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
-    @InjectView(R.id.shl)
+    @BindView(R.id.shl)
     StickyListHeadersListView shl;
-    @InjectView(R.id.lv)
+    @BindView(R.id.lv)
     ListView lv;
-    @InjectView(R.id.fragment_goods_tv_count)
+    @BindView(R.id.fragment_goods_tv_count)
     TextView fragmentGoodsTvCount;
-    @InjectView(R.id.cart)
+    @BindView(R.id.cart)
     RelativeLayout cart;
+
+    private Unbinder unbinder;
+
     private MyGroupAdapter groupAdapter;
     private MyHeadAdapter headAdapter;
 
@@ -68,7 +72,7 @@ public class GoodsFragment extends BaseFragment implements AdapterView.OnItemCli
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_goods, null);
-        ButterKnife.inject(this, view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -93,7 +97,7 @@ public class GoodsFragment extends BaseFragment implements AdapterView.OnItemCli
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+        unbinder.unbind();
     }
 
     @Override

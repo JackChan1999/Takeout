@@ -1,5 +1,7 @@
 # 外卖客户端
 
+![](art/structure.png)
+
 - Git服务器，客户端的搭建与使用
 - MVP+Retrofit+Okhttp+Dagger2组织项目架构
 - 充分运用Android5.0，6.0新增控件实现UI效果。

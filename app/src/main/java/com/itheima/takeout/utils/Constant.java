@@ -6,7 +6,7 @@ package com.itheima.takeout.utils;
 public interface Constant {
     // http://localhost:8080/   TakeoutService    /login?username="itheima"&password="bj"
 
-    String BASEURL="http://192.168.1.113:8080/";
+    String BASEURL="http://192.168.1.102:8080/";
     // 登陆
     String LOGIN="TakeoutService/login";
     // http://localhost:8080/TakeoutService/home

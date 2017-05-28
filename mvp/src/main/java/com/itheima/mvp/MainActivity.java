@@ -14,14 +14,14 @@ import com.itheima.mvp.presenter.MainActivityPresenter;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.username)
+    @BindView(R.id.username)
     EditText mUsername;
-    @InjectView(R.id.password)
+    @BindView(R.id.password)
     EditText mPassword;
 
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
 
         dialog = new ProgressDialog(this);

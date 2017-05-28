@@ -21,7 +21,7 @@ import com.itheima.takeout.R;
 import com.itheima.takeout.model.dao.bean.AddressBean;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -37,33 +37,33 @@ public class EditReceiptAddressActivity extends BaseActivity {
      */
 
 
-    @InjectView(R.id.ib_back)
+    @BindView(R.id.ib_back)
     ImageButton ibBack;
-    @InjectView(R.id.tv_title)
+    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @InjectView(R.id.ib_delete_address)
+    @BindView(R.id.ib_delete_address)
     ImageButton ibDeleteAddress;
-    @InjectView(R.id.et_name)
+    @BindView(R.id.et_name)
     EditText etName;
-    @InjectView(R.id.rb_man)
+    @BindView(R.id.rb_man)
     RadioButton rbMan;
-    @InjectView(R.id.rb_women)
+    @BindView(R.id.rb_women)
     RadioButton rbWomen;
-    @InjectView(R.id.rg_sex)
+    @BindView(R.id.rg_sex)
     RadioGroup rgSex;
-    @InjectView(R.id.et_phone)
+    @BindView(R.id.et_phone)
     EditText etPhone;
-    @InjectView(R.id.ib_delete_phone)
+    @BindView(R.id.ib_delete_phone)
     ImageButton ibDeletePhone;
-    @InjectView(R.id.tv_receipt_address)
+    @BindView(R.id.tv_receipt_address)
     TextView tvReceiptAddress;
-    @InjectView(R.id.et_detail_address)
+    @BindView(R.id.et_detail_address)
     EditText etDetailAddress;
-    @InjectView(R.id.tv_label)
+    @BindView(R.id.tv_label)
     TextView tvLabel;
-    @InjectView(R.id.ib_select_label)
+    @BindView(R.id.ib_select_label)
     ImageView ibSelectLabel;
-    @InjectView(R.id.bt_ok)
+    @BindView(R.id.bt_ok)
     Button btOk;
     private int id;
     private double latitude;
@@ -73,7 +73,7 @@ public class EditReceiptAddressActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_receipt_address);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         init();
     }
