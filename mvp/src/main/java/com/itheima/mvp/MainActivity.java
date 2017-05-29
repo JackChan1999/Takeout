@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.password)
     EditText mPassword;
 
-
     private ProgressDialog dialog;
 
     // 第一步：指定需要注入的目标
@@ -42,14 +41,18 @@ public class MainActivity extends AppCompatActivity {
         dialog = new ProgressDialog(this);
 
         // 此处会实例化具体P层的对象，一旦new出来了，两层之间也就耦合到一起了。
-//         presenter = new MainActivityPresenter(this);
+        // presenter = new MainActivityPresenter(this);
 
-        DaggerMainActivityComponent component = (DaggerMainActivityComponent) DaggerMainActivityComponent.builder().mainActivityModule(new MainActivityModule(this)).build();
-        component.in(this);
+        DaggerMainActivityComponent component = (DaggerMainActivityComponent)
+                DaggerMainActivityComponent
+                .builder()
+                .mainActivityModule(new MainActivityModule(this))
+                .build();
+        component.inject(this);
     }
 
     /**
-     * 钮点击
+     * 按钮点击
      *
      * @param view
      */
@@ -91,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 // 登陆成功
                 dialog.dismiss();
-                Toast.makeText(MainActivity.this, "欢迎回来:" + mUsername.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "欢迎回来:" + mUsername.getText().toString(), Toast
+                        .LENGTH_SHORT).show();
             }
         });
     }

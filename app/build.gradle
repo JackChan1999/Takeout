@@ -3,14 +3,14 @@ apply plugin: 'com.android.application'
 // apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    signingConfigs {
+/*    signingConfigs {
         map {
             keyAlias 'ithm_takeout'
             keyPassword '123456'
             storeFile file('E:/Key/ithm_takeout.jks')
             storePassword '123456'
         }
-    }
+    }*/
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -30,8 +30,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.map
-            minifyEnabled true
+            // signingConfig signingConfigs.map
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
