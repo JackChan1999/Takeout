@@ -16,3 +16,5 @@
 - apk加固
 - 增量更新
 - 热修复
+
+服务端代码：https://github.com/JackChan1999/TakeoutService
