@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.model.net.bean.Category;
 import com.itheima.takeout.model.net.bean.Head;
@@ -25,18 +25,33 @@ import com.umeng.analytics.MobclickAgent;
 
 import java.util.HashMap;
 
-import static com.itheima.takeout.R.id.map;
-
-
 /**
- * 首页数据适配
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：首页RecyclerView的Adapter
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     // 分析条目的样式：三种
     private final int TYPE_HEAD = 0;
     private final int TYPE_SELLER = 1;
     private final int TYPE_RECOMMEND = 2;
-
 
     private HomeInfo data;
 
@@ -45,13 +60,13 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         RecyclerView.ViewHolder holder = null;
         switch (viewType) {
             case TYPE_HEAD:
-                holder = new HeadHoler(View.inflate(MyApplication.getContext(), R.layout.item_title, null));
+                holder = new HeadHoler(View.inflate(App.getContext(), R.layout.item_title, null));
                 break;
             case TYPE_SELLER:
-                holder = new SellerHoler(View.inflate(MyApplication.getContext(), R.layout.item_seller, null));
+                holder = new SellerHoler(View.inflate(App.getContext(), R.layout.item_seller, null));
                 break;
             case TYPE_RECOMMEND:
-                holder = new RecommentHoler(View.inflate(MyApplication.getContext(), R.layout.item_division, null));
+                holder = new RecommentHoler(View.inflate(App.getContext(), R.layout.item_division, null));
                 break;
         }
         return holder;
@@ -123,7 +138,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             sliderLayout.removeAllSliders();
             if (data != null && data.promotionList.size() > 0) {
                 for (Promotion item : data.promotionList) {
-                    TextSliderView textSliderView = new TextSliderView(MyApplication.getContext());
+                    TextSliderView textSliderView = new TextSliderView(App.getContext());
                     textSliderView.image(item.pic);
                     textSliderView.description(item.info);
 
@@ -144,16 +159,16 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
                     if (i % 2 == 0) {
                         // 每个条目中的第一个元素
-                        item = View.inflate(MyApplication.getContext(), R.layout.item_home_head_category, null);
+                        item = View.inflate(App.getContext(), R.layout.item_home_head_category, null);
 
-                        Picasso.with(MyApplication.getContext()).load(category.pic).into((ImageView) item.findViewById(R.id.top_iv));
+                        Picasso.with(App.getContext()).load(category.pic).into((ImageView) item.findViewById(R.id.top_iv));
                         ((TextView) item.findViewById(R.id.top_tv)).setText(category.name);
 
                         categoryContainer.addView(item);
                     }
 
                     if (i % 2 != 0) {
-                        Picasso.with(MyApplication.getContext()).load(category.pic).into((ImageView) item.findViewById(R.id.bottom_iv));
+                        Picasso.with(App.getContext()).load(category.pic).into((ImageView) item.findViewById(R.id.bottom_iv));
                         ((TextView) item.findViewById(R.id.bottom_tv)).setText(category.name);
                     }
                 }
@@ -202,7 +217,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MyApplication.getContext(), SellerDetailActivity.class);
+            Intent intent = new Intent(App.getContext(), SellerDetailActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// 由于使用了Application的上下文，需要增加该配置信息（错误日志中会提示）
             intent.putExtra("seller_id",data.id);
             intent.putExtra("name",data.name);
@@ -224,7 +239,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             MobclickAgent.onEvent(v.getContext(),"seller",map);
 
 
-            MyApplication.getContext().startActivity(intent);
+            App.getContext().startActivity(intent);
 
         }
     }

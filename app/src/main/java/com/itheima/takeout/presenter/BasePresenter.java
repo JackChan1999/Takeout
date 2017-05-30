@@ -1,6 +1,5 @@
 package com.itheima.takeout.presenter;
 
-import com.google.gson.Gson;
 import com.itheima.takeout.model.dao.DBHelper;
 import com.itheima.takeout.model.net.bean.ResponseInfo;
 import com.itheima.takeout.presenter.api.ResponseInfoAPI;
@@ -14,7 +13,26 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * 业务层公共部分代码封装
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：业务层公共代码封装
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 
 public abstract class BasePresenter {

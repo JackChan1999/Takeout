@@ -7,20 +7,39 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.itheima.takeout.R;
 import com.itheima.takeout.ui.fragment.GoodsFragment;
 import com.itheima.takeout.ui.fragment.RecommendFragment;
 import com.itheima.takeout.ui.fragment.SellerFragment;
-import com.itheima.takeout.utils.UiUtils;
+import com.itheima.takeout.utils.UIUtils;
 
 import butterknife.ButterKnife;
 import butterknife.BindView;
+/**
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：外卖客户端
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
+ */
 
 /**
  * 商家详细信息展示
@@ -85,7 +104,7 @@ public class SellerDetailActivity extends BaseActivity {
         // 获取到状态栏的高度
         Rect outRect = new Rect();
         this.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
-        UiUtils.STATUE_BAR_HEIGHT = outRect.top;// 状态栏的高度
+        UIUtils.STATUE_BAR_HEIGHT = outRect.top;// 状态栏的高度
 
     }
 

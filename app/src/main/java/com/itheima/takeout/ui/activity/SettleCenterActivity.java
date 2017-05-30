@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.services.core.LatLonPoint;
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.model.dao.bean.AddressBean;
 import com.itheima.takeout.model.net.bean.GoodsInfo;
@@ -27,7 +27,26 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 结算中心
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：结算中心
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 public class SettleCenterActivity extends BaseActivity {
     @BindView(R.id.ib_back)
@@ -86,9 +105,9 @@ public class SettleCenterActivity extends BaseActivity {
     }
 
     private void setData() {
-        if(MyApplication.LOCATION!=null) {
+        if(App.LOCATION!=null) {
             // 查询地址列表
-            addressPresenter.findAllByUserId(MyApplication.USERID);
+            addressPresenter.findAllByUserId(App.USERID);
         }
 
 
@@ -137,7 +156,7 @@ public class SettleCenterActivity extends BaseActivity {
                 // 用户输入校验：地址（是否选择了配送地址）
                 if (addressId != -1) {
                     // 提交订单数据到服务器，服务器会向订单数据库中插入一条记录，生成对应的订单编号，该编号会回复给手机端，手机端收到该编号后去订单支付界面
-                    orderPresenter.create(MyApplication.USERID, addressId, 1);
+                    orderPresenter.create(App.USERID, addressId, 1);
                 } else {
                     Toast.makeText(this, "请选择配送地址", Toast.LENGTH_SHORT).show();
                 }
@@ -184,7 +203,7 @@ public class SettleCenterActivity extends BaseActivity {
             List<AddressBean> been = (List<AddressBean>) o;
             for (AddressBean item : been) {
                 LatLonPoint point = new LatLonPoint(item.latitude, item.longitude);
-                double distance = getDistance(MyApplication.LOCATION, point);
+                double distance = getDistance(App.LOCATION, point);
                 if (distance < 500) {
                     // 该条目为默认地址
                     // 修改界面

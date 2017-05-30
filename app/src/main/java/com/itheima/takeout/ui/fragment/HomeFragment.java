@@ -17,7 +17,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.services.core.LatLonPoint;
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.dagger.conponent.fragment.DaggerHomeFragmentConponent;
 import com.itheima.takeout.dagger.conponent.fragment.HomeFragmentConponent;
@@ -33,7 +33,28 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-
+/**
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：外卖客户端
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
+ */
 
 /**
  * 工作内容：
@@ -51,7 +72,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     @BindView(R.id.rv_home)
     RecyclerView rvHome;
     @BindView(R.id.home_tv_address)
-    TextView homeTvAddress;
+    TextView     homeTvAddress;
     @BindView(R.id.ll_title_search)
     LinearLayout llTitleSearch;
     @BindView(R.id.ll_title_container)
@@ -62,7 +83,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     @Inject
     HomeFragmentPresenter presenter;
     private HomeRecyclerViewAdapter adapter;
-    private AMapLocationClient mlocationClient;
+    private AMapLocationClient      mlocationClient;
 
 
     @Override
@@ -72,14 +93,15 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
         DaggerHomeFragmentConponent.Builder builder = DaggerHomeFragmentConponent.builder();
         builder.homeFragmentModule(new HomeFragmentModule(this));
         HomeFragmentConponent conponent = builder.build();
-        conponent.in(this);
+        conponent.inject(this);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
+            Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, null);
-        unbinder= ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -88,7 +110,8 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
         super.onViewCreated(view, savedInstanceState);
         adapter = new HomeRecyclerViewAdapter();
         rvHome.setAdapter(adapter);
-        rvHome.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
+        rvHome.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager
+                .VERTICAL, false));
         rvHome.addOnScrollListener(listener);
 
         location();
@@ -119,7 +142,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
         if (aMapLocation != null && aMapLocation.getErrorCode() == 0) {
-            MyApplication.LOCATION = new LatLonPoint(aMapLocation.getLatitude(), aMapLocation.getLongitude());
+            App.LOCATION = new LatLonPoint(aMapLocation.getLatitude(), aMapLocation.getLongitude());
 
             String address = aMapLocation.getAddress();
             homeTvAddress.setText(address);
@@ -130,20 +153,19 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
     @Override
     public void onResume() {
         super.onResume();
-
         presenter.getData();
         // 显示滚动条
     }
 
-    private int sumY = 0;
-    private float duration = 150.0f;//在0-150之间去改变头部的透明度
-    private ArgbEvaluator evaluator = new ArgbEvaluator();
-    private RecyclerView.OnScrollListener listener = new RecyclerView.OnScrollListener() {
+    private int                           sumY      = 0;
+    private float                         duration  = 150.0f;//在0-150之间去改变头部的透明度
+    private ArgbEvaluator                 evaluator = new ArgbEvaluator();
+    private RecyclerView.OnScrollListener listener  = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
 
-//            System.out.println("recyclerView = [" + recyclerView + "], dx = [" + dx + "], dy = [" + dy + "]");
+            // System.out.println("recyclerView = [" + recyclerView + "], dx = [" + dx + "], dy = [" + dy + "]");
 
             sumY += dy;
 

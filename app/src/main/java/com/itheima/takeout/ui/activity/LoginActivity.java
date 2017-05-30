@@ -20,17 +20,39 @@ import butterknife.OnClick;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
-
 /**
- * 用户登录界面：
- * 1、引入短信校验相关工具
- * 2、获取验证码
- * 等待时间处理
- * 3、发送验证码
- * 4、把手机号码发送到自己的服务器，做注册或登陆操作
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：外卖客户端
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
+
 public class LoginActivity extends BaseActivity {
 
+    /**
+     * 用户登录界面：
+     * 1、引入短信校验相关工具
+     * 2、获取验证码
+     * 等待时间处理
+     * 3、发送验证码
+     * 4、把手机号码发送到自己的服务器，做注册或登陆操作
+     */
     /*
     App Key：16db05f4edda0
 App Secret：f5f8e5c52e11337353979972c1b08cae

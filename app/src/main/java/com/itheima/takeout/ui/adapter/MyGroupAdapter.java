@@ -1,7 +1,6 @@
 package com.itheima.takeout.ui.adapter;
 
 import android.graphics.Paint;
-import android.support.design.widget.FloatingActionButton;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.model.net.bean.GoodsInfo;
 import com.itheima.takeout.model.net.bean.GoodsTypeInfo;
 import com.itheima.takeout.ui.ShoppingCartManager;
 import com.itheima.takeout.utils.AnimationUtils;
 import com.itheima.takeout.utils.NumberFormatUtils;
-import com.itheima.takeout.utils.UiUtils;
+import com.itheima.takeout.utils.UIUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -30,11 +29,27 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
-import static android.R.attr.animation;
-import static com.itheima.takeout.utils.UiUtils.getContainder;
-
 /**
- * 分组容器适配
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：分组adapter
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 
 public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdapter {
@@ -57,7 +72,7 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
         TextView head = new TextView(parent.getContext());
         GoodsTypeInfo headData = headDataSet.get(itemDataSet.get(position).headIndex);
         head.setText(headData.name);
-        head.setBackgroundColor(MyApplication.getContext().getResources().getColor(R.color.colorItemBg));
+        head.setBackgroundColor(App.getContext().getResources().getColor(R.color.colorItemBg));
         return head;
     }
 
@@ -72,7 +87,7 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
         GoodsInfo data = itemDataSet.get(position);
         ItemViewHolder holder;
         if (convertView == null) {
-            convertView = View.inflate(MyApplication.getContext(), R.layout.item_goods, null);
+            convertView = View.inflate(App.getContext(), R.layout.item_goods, null);
             holder = new ItemViewHolder(convertView);
             convertView.setTag(holder);
         } else {
@@ -224,13 +239,13 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
             int [] targetLocation=new int[2];
             // 将Activity加载控件容器获取到
             if(container==null) {
-                container = (FrameLayout) UiUtils.getContainder(v, R.id.seller_detail_container);
+                container = (FrameLayout) UIUtils.getContainder(v, R.id.seller_detail_container);
             }
             container.findViewById(R.id.cart).getLocationOnScreen(targetLocation);
 
             // getLocationOnScreen获取控件所在屏幕中的位置，需要在y轴方向将状态栏的高度减掉
-            location[1]-=UiUtils.STATUE_BAR_HEIGHT;
-            targetLocation[1]-=UiUtils.STATUE_BAR_HEIGHT;
+            location[1]-= UIUtils.STATUE_BAR_HEIGHT;
+            targetLocation[1]-= UIUtils.STATUE_BAR_HEIGHT;
 
             // 创建一个控件，放到“+”按钮地方，执行动画
             final ImageView iv=getImageView(location,v);
@@ -245,7 +260,7 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
         }
 
         private ImageView getImageView(int[] location, View v){
-            ImageView iv=new ImageButton(MyApplication.getContext());
+            ImageView iv=new ImageButton(App.getContext());
             iv.setX(location[0]);
             iv.setY(location[1]);
             iv.setBackgroundResource(R.mipmap.food_button_add);
@@ -262,7 +277,7 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
             this.data = data;
 
             //图片
-            Picasso.with(MyApplication.getContext()).load(data.icon).into(ivIcon);
+            Picasso.with(App.getContext()).load(data.icon).into(ivIcon);
             tvName.setText(data.name);
             if (TextUtils.isEmpty(data.form)) {
                 tvZucheng.setVisibility(View.GONE);

@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.model.dao.bean.AddressBean;
 
@@ -26,7 +26,26 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 地址列表展示
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：地址列表展示
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 public class ReceiptAddressActivity extends BaseActivity {
 
@@ -67,9 +86,9 @@ public class ReceiptAddressActivity extends BaseActivity {
             case R.id.ib_back:
                 break;
             case R.id.tv_add_address:
-                Intent intent = new Intent(MyApplication.getContext(), EditReceiptAddressActivity.class);
+                Intent intent = new Intent(App.getContext(), EditReceiptAddressActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                MyApplication.getContext().startActivity(intent);
+                App.getContext().startActivity(intent);
                 break;
         }
     }
@@ -84,9 +103,9 @@ public class ReceiptAddressActivity extends BaseActivity {
             adapter=new MyAdapter(been);
             rvReceiptAddress.setAdapter(adapter);
         }else{
-            Intent intent = new Intent(MyApplication.getContext(), EditReceiptAddressActivity.class);
+            Intent intent = new Intent(App.getContext(), EditReceiptAddressActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            MyApplication.getContext().startActivity(intent);
+            App.getContext().startActivity(intent);
             Toast.makeText(this, "需要添加地址", Toast.LENGTH_SHORT).show();
         }
     }
@@ -105,7 +124,7 @@ public class ReceiptAddressActivity extends BaseActivity {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(MyApplication.getContext()).inflate(R.layout.item_receipt_address, parent, false);
+            View view = LayoutInflater.from(App.getContext()).inflate(R.layout.item_receipt_address, parent, false);
             ViewHolder holder = new ViewHolder(view);
             return holder;
         }
@@ -166,10 +185,10 @@ public class ReceiptAddressActivity extends BaseActivity {
             @OnClick(R.id.iv_edit)
             public void onClick(View view) {
 
-                Intent intent = new Intent(MyApplication.getContext(), EditReceiptAddressActivity.class);
+                Intent intent = new Intent(App.getContext(), EditReceiptAddressActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("id", data._id);// 地址id
-                MyApplication.getContext().startActivity(intent);
+                App.getContext().startActivity(intent);
             }
 
 

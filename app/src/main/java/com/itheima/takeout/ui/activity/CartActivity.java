@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.model.net.bean.GoodsInfo;
 import com.itheima.takeout.ui.ShoppingCartManager;
@@ -24,7 +24,26 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 购物车界面
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：购物车界面
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 public class CartActivity extends BaseActivity {
 
@@ -71,7 +90,7 @@ public class CartActivity extends BaseActivity {
         // 没有登陆，去用户登陆界面
 
         Intent intent =null;
-        if(MyApplication.USERID!=0){
+        if(App.USERID!=0){
             // 如果登陆了，去订单生成界面
             intent = new Intent(this, SettleCenterActivity.class);
         }else{
@@ -85,7 +104,7 @@ public class CartActivity extends BaseActivity {
     class MyCartAdapter extends RecyclerView.Adapter {
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            ViewHolder holder = new ViewHolder(View.inflate(MyApplication.getContext(), R.layout.item_cart, null));
+            ViewHolder holder = new ViewHolder(View.inflate(App.getContext(), R.layout.item_cart, null));
             return holder;
         }
 
@@ -118,7 +137,7 @@ public class CartActivity extends BaseActivity {
 
             public void setData(GoodsInfo data) {
                 this.data = data;
-                Picasso.with(MyApplication.getContext()).load(data.icon).into(itemIv);
+                Picasso.with(App.getContext()).load(data.icon).into(itemIv);
                 itemTvName.setText(data.name);
                 itemTvPrice.setText(NumberFormatUtils.formatDigits(data.newPrice));
                 itemTvNum.setText(data.count+"");

@@ -2,7 +2,6 @@ package com.itheima.takeout.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,7 +25,7 @@ import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 
 import java.util.List;
@@ -35,7 +34,26 @@ import butterknife.ButterKnife;
 import butterknife.BindView;
 
 /**
- * 定位的Activity
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：定位
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 public class SelectLocationActivity extends BaseActivity implements LocationSource, AMapLocationListener, PoiSearch.OnPoiSearchListener {
 
@@ -147,7 +165,7 @@ public class SelectLocationActivity extends BaseActivity implements LocationSour
                 mlocationClient.stopLocation();
                 // 查询附近信息
 
-                MyApplication.LOCATION = new LatLonPoint(aMapLocation.getLatitude(), aMapLocation.getLongitude());
+                App.LOCATION = new LatLonPoint(aMapLocation.getLatitude(), aMapLocation.getLongitude());
                 doSearchQuery(aMapLocation.getCity());
 
 
@@ -165,10 +183,10 @@ public class SelectLocationActivity extends BaseActivity implements LocationSour
         query.setPageSize(20);// 设置每页最多返回多少条poiitem
         query.setPageNum(0);// 设置查第一页
 
-        if (MyApplication.LOCATION != null) {
+        if (App.LOCATION != null) {
             PoiSearch poiSearch = new PoiSearch(this, query);
             poiSearch.setOnPoiSearchListener(this);
-            poiSearch.setBound(new PoiSearch.SearchBound(MyApplication.LOCATION, 500, true));//
+            poiSearch.setBound(new PoiSearch.SearchBound(App.LOCATION, 500, true));//
             // 设置搜索区域为以lp点为圆心，其周围500米范围
             poiSearch.searchPOIAsyn();// 异步搜索
         }

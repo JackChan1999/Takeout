@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.model.dao.bean.AddressBean;
 
@@ -25,7 +25,26 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 地址编辑
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：地址编辑
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 public class EditReceiptAddressActivity extends BaseActivity {
     /**
@@ -79,8 +98,8 @@ public class EditReceiptAddressActivity extends BaseActivity {
     }
 
     private void init() {
-        if (!TextUtils.isEmpty(MyApplication.phone)) {
-            etPhone.setText(MyApplication.phone);
+        if (!TextUtils.isEmpty(App.phone)) {
+            etPhone.setText(App.phone);
             ibDeletePhone.setVisibility(View.VISIBLE);
         }
 

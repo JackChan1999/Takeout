@@ -13,7 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.R;
 import com.itheima.takeout.model.net.bean.GoodsTypeInfo;
 
@@ -26,7 +26,28 @@ import butterknife.Unbinder;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
-
+/**
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：外卖客户端
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
+ */
 /**
  * 订单列表
  * <p>
@@ -206,7 +227,7 @@ public class GoodsFragment_bat extends BaseFragment implements AdapterView.OnIte
             // 头所在集合下标
             Head head = headDatas.get(data.headIndex);
 
-            TextView tv = new TextView(MyApplication.getContext());
+            TextView tv = new TextView(App.getContext());
             tv.setText(head.info);
             tv.setBackgroundColor(Color.GRAY);
             return tv;
@@ -238,7 +259,7 @@ public class GoodsFragment_bat extends BaseFragment implements AdapterView.OnIte
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView tv = new TextView(MyApplication.getContext());
+            TextView tv = new TextView(App.getContext());
             tv.setText(datas.get(position).info);
             tv.setTextColor(Color.GRAY);
             return tv;
@@ -265,7 +286,7 @@ public class GoodsFragment_bat extends BaseFragment implements AdapterView.OnIte
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView tv = new TextView(MyApplication.getContext());
+            TextView tv = new TextView(App.getContext());
             tv.setText(headDatas.get(position).info);
             tv.setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 50));
             tv.setGravity(Gravity.CENTER);

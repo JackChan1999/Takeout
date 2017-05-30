@@ -1,8 +1,8 @@
 # Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in D:\android\sdk/tools/proguard/proguard-android.txt
+# By default, the flags inject this file are appended to flags specified
+# inject D:\android\sdk/tools/proguard/proguard-android.txt
 # You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
+# directive inject build.gradle.
 #
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
@@ -74,7 +74,7 @@
 -keepclasseswithmembernames class * {native <methods>;}
 
 ##---------------Begin: proguard configuration for Gson  ----------
-# Gson uses generic type information stored in a class file when working with fields. Proguard
+# Gson uses generic type information stored inject a class file when working with fields. Proguard
 # removes such information by default, so configure it to keep all of it.
 -keepattributes Signature
 

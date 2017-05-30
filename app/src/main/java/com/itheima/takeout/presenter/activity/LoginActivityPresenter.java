@@ -3,12 +3,11 @@ package com.itheima.takeout.presenter.activity;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.model.dao.bean.UserBean;
 import com.itheima.takeout.model.net.bean.ResponseInfo;
 import com.itheima.takeout.presenter.BasePresenter;
 import com.itheima.takeout.ui.IView;
-import com.itheima.takeout.ui.activity.LoginActivity;
 import com.itheima.takeout.utils.Constant;
 import com.j256.ormlite.android.AndroidDatabaseConnection;
 import com.j256.ormlite.dao.Dao;
@@ -21,7 +20,26 @@ import retrofit2.Call;
 
 
 /**
- * 用户登陆界面业务管理
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：用户登录界面业务管理
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 
 public class LoginActivityPresenter extends BasePresenter {
@@ -83,8 +101,8 @@ public class LoginActivityPresenter extends BasePresenter {
 
             connection.commit(start);
 
-            MyApplication.phone = userBean.phone;
-            MyApplication.USERID = userBean._id;
+            App.phone = userBean.phone;
+            App.USERID = userBean._id;
             view.success(null);
 
         } catch (SQLException e) {

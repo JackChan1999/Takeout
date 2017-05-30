@@ -1,8 +1,7 @@
-package com.itheima.takeout.ui.fragment;
+package com.itheima.takeout.utils;
 
-import android.support.v4.app.Fragment;
-
-import com.umeng.analytics.MobclickAgent;
+import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * ============================================================
@@ -27,16 +26,20 @@ import com.umeng.analytics.MobclickAgent;
  * ============================================================
  */
 
-public class BaseFragment extends Fragment {
+public class UIUtils {
+    public static int STATUE_BAR_HEIGHT=0;// 记录装填栏的高度
 
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(getContext());
-        MobclickAgent.onPageStart(this.getClass().getSimpleName());
-    }
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(getContext());
-        MobclickAgent.onPageEnd(this.getClass().getSimpleName());
+    /**
+     * 依据Id查询指定控件的父控件
+     * @param v 指定控件
+     * @param id 父容器标识
+     * @return
+     */
+    public static ViewGroup getContainder(View v, int id) {
+        ViewGroup parent = (ViewGroup) v.getParent();
+        if (parent.getId() == id) {
+            return parent;
+        }
+        return getContainder(parent, id);
     }
 }

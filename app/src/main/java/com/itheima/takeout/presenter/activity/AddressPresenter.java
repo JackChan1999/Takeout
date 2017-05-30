@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.itheima.takeout.MyApplication;
+import com.itheima.takeout.App;
 import com.itheima.takeout.model.dao.bean.AddressBean;
 import com.itheima.takeout.model.dao.bean.UserBean;
 import com.itheima.takeout.model.net.bean.ResponseInfo;
@@ -18,7 +18,26 @@ import java.util.List;
 import retrofit2.Call;
 
 /**
- * 地址的业务管理
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：地址的业务管理
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 
 public class AddressPresenter extends BasePresenter {
@@ -44,7 +63,7 @@ public class AddressPresenter extends BasePresenter {
         // 获取网络地址，获取本地地址
         // 如果网络地址获取到后，存储到本地
 
-        Call<ResponseInfo> address = responseInfoAPI.address(MyApplication.USERID);
+        Call<ResponseInfo> address = responseInfoAPI.address(App.USERID);
         address.enqueue(new CallbackAdapter());
     }
 
@@ -58,7 +77,7 @@ public class AddressPresenter extends BasePresenter {
     protected void parserData(String data) {
         if (TextUtils.isEmpty(data)) {
             // 读取本地的地址
-            findAllByUserId(MyApplication.USERID);
+            findAllByUserId(App.USERID);
         } else {
             Gson gson=new Gson();
             // 获取网络信息记录入库
@@ -68,7 +87,7 @@ public class AddressPresenter extends BasePresenter {
                 create(item);
             }
 
-            findAllByUserId(MyApplication.USERID);
+            findAllByUserId(App.USERID);
         }
     }
 
@@ -78,7 +97,7 @@ public class AddressPresenter extends BasePresenter {
      */
     public int create(AddressBean item){
         UserBean userBean=new UserBean();
-        userBean._id=MyApplication.USERID;
+        userBean._id= App.USERID;
         item.user=userBean;
         try {
             return dao.create(item);
@@ -131,7 +150,7 @@ public class AddressPresenter extends BasePresenter {
 
         AddressBean bean = new AddressBean(name, sex, phone, receiptAddress, detailAddress, label,longitude,latitude);
         UserBean user=new UserBean();
-        user._id=MyApplication.USERID;
+        user._id= App.USERID;
         bean.user=user;
         bean._id=id;
 
