@@ -100,6 +100,7 @@ public class MyHeadAdapter extends BaseAdapter {
         public void setData(GoodsTypeInfo data) {
             this.data = data;
             ((TextView) itemView).setText(data.name);
+            ((TextView) itemView).setTextColor(Color.BLACK);
             ((TextView) itemView).setBackgroundColor(App.getContext().getResources().getColor(R.color.colorItemBg));
             ((TextView) itemView).setTextSize(12);
 

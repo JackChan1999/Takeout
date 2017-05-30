@@ -1,5 +1,6 @@
 package com.itheima.takeout.ui.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -33,14 +34,21 @@ import com.itheima.takeout.R;
  * ============================================================
  */
 public class SellerFragment extends BaseFragment {
+
+    TextView tv;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_,null);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
+            Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_, null);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((TextView)view.findViewById(R.id.tv)).setText("商家");
+        tv = (TextView) view.findViewById(R.id.tv);
+        tv.setTextColor(Color.BLACK);
+        tv.setTextSize(16);
+        tv.setText("商家");
     }
 }

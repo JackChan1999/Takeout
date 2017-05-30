@@ -1,5 +1,7 @@
 package com.itheima.takeout.presenter.fragment;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.itheima.takeout.model.net.bean.GoodsTypeInfo;
@@ -53,11 +55,12 @@ public class GoodsFragmentPresenter extends BasePresenter {
 
     @Override
     protected void failed(String msg) {
-
+        Log.e("data","load data failed");
     }
 
     @Override
     protected void parserData(String data) {
+        Log.e("data",data);
         Gson gson = new Gson();
         ArrayList<GoodsTypeInfo> goodsTypeInfos = gson.fromJson(data, new TypeToken<List<GoodsTypeInfo>>() {
         }.getType());

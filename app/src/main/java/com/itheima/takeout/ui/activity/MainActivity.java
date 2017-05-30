@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.itheima.takeout.R;
 import com.itheima.takeout.ui.fragment.HomeFragment;
@@ -43,14 +42,12 @@ import butterknife.ButterKnife;
  */
 public class MainActivity extends BaseActivity {
 
-
     @BindView(R.id.main_fragment_container)
     FrameLayout mainFragmentContainer;
 
     // 底部导航容器
     @BindView(R.id.main_bottome_switcher_container)
     LinearLayout mainBottomeSwitcherContainer;
-
 
     ArrayList<Fragment> fragments = new ArrayList<>();
 
@@ -114,7 +111,7 @@ public class MainActivity extends BaseActivity {
      * @param index
      */
     private void changeUi(int index) {
-        Toast.makeText(this,""+index,Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this,""+index,Toast.LENGTH_SHORT).show();
 
         int childCount = mainBottomeSwitcherContainer.getChildCount();
 
@@ -134,10 +131,7 @@ public class MainActivity extends BaseActivity {
                 // 每个Item中的控件都需要切换状态
                 setEnable(mainBottomeSwitcherContainer.getChildAt(i),true);
             }
-
-
         }
-
     }
 
     /**

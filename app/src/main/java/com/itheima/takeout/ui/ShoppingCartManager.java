@@ -5,7 +5,26 @@ import com.itheima.takeout.model.net.bean.GoodsInfo;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * Created by itheima.
+ * ============================================================
+ * Copyright：JackChan和他的朋友们有限公司版权所有 (c) 2017
+ * Author：   JackChan
+ * Email：    815712739@qq.com
+ * GitHub：   https://github.com/JackChan1999
+ * GitBook：  https://www.gitbook.com/@alleniverson
+ * CSDN博客： http://blog.csdn.net/axi295309066
+ * 个人博客： https://jackchan1999.github.io/
+ * 微博：     AndroidDeveloper
+ * <p>
+ * Project_Name：Takeout
+ * Package_Name：com.itheima.takeout
+ * Version：1.0
+ * time：2017/5/30 13:52
+ * des ：购物车管理者
+ * gitVersion：2.12.0.windows.1
+ * updateAuthor：AllenIverson
+ * updateDate：2017/5/30 13:52
+ * updateDes：${TODO}
+ * ============================================================
  */
 
 public class ShoppingCartManager {
@@ -52,9 +71,7 @@ public class ShoppingCartManager {
         // 如果没有，添加一条记录
 
         boolean isContain = false;
-        for (GoodsInfo item :
-                goodsInfos
-                ) {
+        for (GoodsInfo item : goodsInfos) {
             if (item.id == info.id) {
                 item.count++;
                 num = item.count;
@@ -67,7 +84,6 @@ public class ShoppingCartManager {
             num = info.count = 1;
             goodsInfos.add(info);
         }
-
 
         return num;
     }
@@ -102,8 +118,7 @@ public class ShoppingCartManager {
      */
     public Integer getTotalNum() {
         totalNum=0;
-        for (GoodsInfo item :
-                goodsInfos) {
+        for (GoodsInfo item : goodsInfos) {
             totalNum += item.count;
         }
         return totalNum;
@@ -111,8 +126,7 @@ public class ShoppingCartManager {
 
     public Integer getMoney(){
         money=0;
-        for (GoodsInfo item :
-                goodsInfos) {
+        for (GoodsInfo item : goodsInfos) {
             money += (int)(item.newPrice*100);
         }
         return money;
@@ -130,8 +144,7 @@ public class ShoppingCartManager {
      * @param id
      */
     public Integer getGoodsIdNum(int id) {
-        for (GoodsInfo item :
-                goodsInfos) {
+        for (GoodsInfo item : goodsInfos) {
             if (id == item.id){
                 return item.count;
             }

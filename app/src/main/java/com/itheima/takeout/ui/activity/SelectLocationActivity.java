@@ -266,8 +266,6 @@ public class SelectLocationActivity extends BaseActivity implements LocationSour
                     }
                 });
             }
-
-
         }
     }
 }

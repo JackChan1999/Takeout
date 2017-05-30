@@ -1,5 +1,6 @@
 package com.itheima.takeout.utils;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -41,5 +42,9 @@ public class UIUtils {
             return parent;
         }
         return getContainder(parent, id);
+    }
+
+    public static int dp2px(Context context, int dp){
+        return (int) (dp*context.getResources().getDisplayMetrics().density + 0.5f);
     }
 }

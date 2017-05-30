@@ -60,7 +60,10 @@ public class OrderFragment extends BaseFragment implements IView{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DaggerOrderFragmentConponent.builder().presenterModule(new PresenterModule(this)).build().inject(this);
+        DaggerOrderFragmentConponent.builder()
+                .presenterModule(new PresenterModule(this))
+                .build()
+                .inject(this);
     }
 
     @Override

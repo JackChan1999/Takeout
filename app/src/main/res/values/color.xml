@@ -2,7 +2,67 @@
 <resources>
     <color name="colorPrimaryDark">#3190E8</color>
     <color name="colorAccent">#FF4081</color>
-
     <color name="colorItemBg">#EEEEEE</color>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="settings_dashboard_bg">#fafafa</color>
+
+    <color name="tab_indicator_selected">#6666FF</color>
+
+    <color name="tab_text_selected">#6666FF</color>
+    <color name="tab_text_normal">#333333</color>
+
+    <color name="item_divider">#ffd7d7d7</color>
+    <color name="bg">#66cccccc</color>
+    <color name="item_download_bg">#cccccccc</color>
+    <color name="menu_bg_normal">#f0f1f3</color>
+    <color name="menu_bg_press">#cecece</color>
+    <color name="app_detail_safe_normal">#999999</color>
+    <color name="app_detail_safe_warning">#ff8800</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="darker_gray">#aaa</color>
+    <color name="loadingTextColor">#ebc4a5</color>
+
+    <!--viewpagerindicator-->
+    <color name="vpi__background_holo_dark">#ff000000</color>
+    <color name="vpi__background_holo_light">#fff3f3f3</color>
+    <color name="vpi__bright_foreground_holo_dark">@color/vpi__background_holo_light</color>
+    <color name="vpi__bright_foreground_holo_light">@color/vpi__background_holo_dark</color>
+    <color name="vpi__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="vpi__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="vpi__bright_foreground_inverse_holo_dark">@color/vpi__bright_foreground_holo_light</color>
+    <color name="vpi__bright_foreground_inverse_holo_light">@color/vpi__bright_foreground_holo_dark</color>
+
+    <!--toolbar-->
+    <color name="titleBlue">#4876FF</color>
+
+    <color name="bg_gray_1">#eaeaea</color>
+    <color name="bg_gray_2">#EFF4F7</color>
+    <color name="color_text_1">#dd000000</color>
+    <color name="color_text_2">#8a000000</color>
+    <color name="ripple">#FF21272B</color>
+    <color name="lighter_gray">#ddd</color>
+    <color name="title_color">#cc000000</color>
+    <color name="common_list_item_divider">#ffd5d5d5</color>
+    <color name="common_list_item_bar">#0a000000</color>
+    <color name="block_divider_viewbg_color">#fff0f0f0</color>
+    <color name="slidingmenu_background_light">#fff6f6f6</color>
+
+    <color name="mc_default_theme_color">#ff32a5e7</color>
+    <color name="mc_drawerscaledrawable_default_color">#ffa8a8a8</color>
+    <color name="mc_smartbar_divider">#33000000</color>
+    <color name="mc_smartbar_background">#d9ffffff</color>
+    <color name="mc_titlebar_background">#e5ededed</color>
+    <color name="mc_tip_color">#ff32a5e7</color>
+    <color name="mc_cir_progress_button_blue">#ff32a5e3</color>
+    <color name="mc_cir_progress_button_green">#ff99cc00</color>
+    <color name="mc_cir_progress_button_grey">#ffdedede</color>
+    <color name="mc_cir_progress_button_red">#ffff4444</color>
+    <color name="mc_cir_progress_button_white">#fffafafa</color>
 
 </resources>

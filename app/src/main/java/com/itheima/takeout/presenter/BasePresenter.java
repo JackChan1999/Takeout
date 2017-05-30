@@ -1,5 +1,7 @@
 package com.itheima.takeout.presenter;
 
+import android.util.Log;
+
 import com.itheima.takeout.model.dao.DBHelper;
 import com.itheima.takeout.model.net.bean.ResponseInfo;
 import com.itheima.takeout.presenter.api.ResponseInfoAPI;
@@ -85,6 +87,7 @@ public abstract class BasePresenter {
 
             } else {
                 // 联网过程中的异常
+                Log.e("data","联网过程中的异常");
             }
 
 
@@ -93,6 +96,7 @@ public abstract class BasePresenter {
         @Override
         public void onFailure(Call<ResponseInfo> call, Throwable t) {
             // 联网过程中的异常
+            Log.e("data","联网过程中的异常");
         }
     }
 

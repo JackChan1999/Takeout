@@ -20,7 +20,7 @@ import com.itheima.takeout.model.net.bean.GoodsTypeInfo;
 import com.itheima.takeout.presenter.fragment.GoodsFragmentPresenter;
 import com.itheima.takeout.ui.ShoppingCartManager;
 import com.itheima.takeout.ui.activity.CartActivity;
-import com.itheima.takeout.ui.adapter.MyGroupAdapter;
+import com.itheima.takeout.ui.adapter.StickyListAdapter;
 import com.itheima.takeout.ui.adapter.MyHeadAdapter;
 
 import java.util.ArrayList;
@@ -77,8 +77,8 @@ public class GoodsFragment extends BaseFragment implements AdapterView.OnItemCli
 
     private Unbinder unbinder;
 
-    private MyGroupAdapter groupAdapter;
-    private MyHeadAdapter headAdapter;
+    private StickyListAdapter groupAdapter;
+    private MyHeadAdapter     headAdapter;
 
     @Inject
     GoodsFragmentPresenter presenter;
@@ -87,12 +87,15 @@ public class GoodsFragment extends BaseFragment implements AdapterView.OnItemCli
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DaggerGoodsFragmentConponent.builder().goodsFragmentModule(new GoodsFragmentModule(this)).build().inject(this);
+        DaggerGoodsFragmentConponent.builder()
+                .goodsFragmentModule(new GoodsFragmentModule(this))
+                .build()
+                .inject(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_goods, null);
+        View view = inflater.inflate(R.layout.fragment_goods, container,false);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -191,7 +194,7 @@ public class GoodsFragment extends BaseFragment implements AdapterView.OnItemCli
         headAdapter = new MyHeadAdapter(headDatas);
         lv.setAdapter(headAdapter);
 
-        groupAdapter = new MyGroupAdapter(headDatas, datas);
+        groupAdapter = new StickyListAdapter(headDatas, datas);
         shl.setAdapter(groupAdapter);
 
 

@@ -99,8 +99,6 @@ public class SettleCenterActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settle_center);
         ButterKnife.bind(this);
-
-
         setData();
     }
 

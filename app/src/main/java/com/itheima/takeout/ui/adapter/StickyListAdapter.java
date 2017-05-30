@@ -1,5 +1,6 @@
 package com.itheima.takeout.ui.adapter;
 
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.TextUtils;
 import android.view.View;
@@ -52,13 +53,13 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
  * ============================================================
  */
 
-public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdapter {
+public class StickyListAdapter extends BaseAdapter implements StickyListHeadersAdapter {
 
 
     private final ArrayList<GoodsTypeInfo> headDataSet;
     private final ArrayList<GoodsInfo> itemDataSet;
 
-    public MyGroupAdapter(ArrayList<GoodsTypeInfo> headDataSet, ArrayList<GoodsInfo> itemDataSet) {
+    public StickyListAdapter(ArrayList<GoodsTypeInfo> headDataSet, ArrayList<GoodsInfo> itemDataSet) {
         this.headDataSet = headDataSet;
         this.itemDataSet = itemDataSet;
     }
@@ -70,6 +71,9 @@ public class MyGroupAdapter extends BaseAdapter implements StickyListHeadersAdap
         // 向上滚动：头数据加载的是每组的最后一条
 
         TextView head = new TextView(parent.getContext());
+        head.setTextColor(Color.BLACK);
+        head.setTextSize(16);
+        head.setPadding(0,UIUtils.dp2px(parent.getContext(),10),0,UIUtils.dp2px(parent.getContext(),10));
         GoodsTypeInfo headData = headDataSet.get(itemDataSet.get(position).headIndex);
         head.setText(headData.name);
         head.setBackgroundColor(App.getContext().getResources().getColor(R.color.colorItemBg));

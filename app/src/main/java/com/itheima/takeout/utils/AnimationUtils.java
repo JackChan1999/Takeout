@@ -23,7 +23,7 @@ import android.view.animation.TranslateAnimation;
  * Package_Name：com.itheima.takeout
  * Version：1.0
  * time：2017/5/30 13:52
- * des ：外卖客户端
+ * des ：动画工具类
  * gitVersion：2.12.0.windows.1
  * updateAuthor：AllenIverson
  * updateDate：2017/5/30 13:52

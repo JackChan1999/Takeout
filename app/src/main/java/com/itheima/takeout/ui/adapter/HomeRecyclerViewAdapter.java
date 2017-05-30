@@ -163,7 +163,12 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
                         Picasso.with(App.getContext()).load(category.pic).into((ImageView) item.findViewById(R.id.top_iv));
                         ((TextView) item.findViewById(R.id.top_tv)).setText(category.name);
-
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                LinearLayout.LayoutParams.MATCH_PARENT);
+                        params.weight = 1;
+                        params.width = 0;
+                        item.setLayoutParams(params);
                         categoryContainer.addView(item);
                     }
 

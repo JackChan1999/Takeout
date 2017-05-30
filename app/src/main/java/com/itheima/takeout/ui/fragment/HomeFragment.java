@@ -1,6 +1,7 @@
 package com.itheima.takeout.ui.fragment;
 
 import android.animation.ArgbEvaluator;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,6 +27,7 @@ import com.itheima.takeout.model.net.bean.HomeInfo;
 import com.itheima.takeout.presenter.fragment.HomeFragmentPresenter;
 import com.itheima.takeout.ui.activity.SelectLocationActivity;
 import com.itheima.takeout.ui.adapter.HomeRecyclerViewAdapter;
+import com.itheima.takeout.utils.UIUtils;
 
 import javax.inject.Inject;
 
@@ -82,9 +84,17 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
 
     @Inject
     HomeFragmentPresenter presenter;
+
     private HomeRecyclerViewAdapter adapter;
     private AMapLocationClient      mlocationClient;
 
+    private Context mContext;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -102,6 +112,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, null);
         unbinder = ButterKnife.bind(this, view);
+        duration = UIUtils.dp2px(mContext,150);
         return view;
     }
 
@@ -157,15 +168,16 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
         // 显示滚动条
     }
 
-    private int                           sumY      = 0;
-    private float                         duration  = 150.0f;//在0-150之间去改变头部的透明度
+    private int sumY = 0;
+    private int duration;//在0-150之间去改变头部的透明度
     private ArgbEvaluator                 evaluator = new ArgbEvaluator();
     private RecyclerView.OnScrollListener listener  = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
 
-            // System.out.println("recyclerView = [" + recyclerView + "], dx = [" + dx + "], dy = [" + dy + "]");
+            // System.out.println("recyclerView = [" + recyclerView + "], dx = [" + dx + "], dy =
+            // [" + dy + "]");
 
             sumY += dy;
 
@@ -215,10 +227,7 @@ public class HomeFragment extends BaseFragment implements AMapLocationListener {
         super.onActivityResult(requestCode, resultCode, data);
 
         // 在Fragment内部接受不到数据，需要通过Activity在中间传递数据
-
         String title = data.getStringExtra("title");
         homeTvAddress.setText(title);
     }
-
-
 }

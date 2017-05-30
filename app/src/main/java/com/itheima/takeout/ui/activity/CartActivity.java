@@ -143,8 +143,5 @@ public class CartActivity extends BaseActivity {
                 itemTvNum.setText(data.count+"");
             }
         }
-
-
-
     }
 }
