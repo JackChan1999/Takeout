@@ -36,7 +36,7 @@ import retrofit2.http.Query;
  */
 public interface ResponseInfoAPI {
     /**
-     * 用户登陆:/login?username="itheima"&password="bj"
+     * 用户登陆:/login?username="jackchan"&password="bj"
      */
 //    @GET(Constant.PATH+Constant.LOGIN)
 

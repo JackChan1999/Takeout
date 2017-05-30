@@ -40,7 +40,7 @@ public class MoreFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_,null);
+        return inflater.inflate(R.layout.fragment_more,container,false);
     }
 
     @Override

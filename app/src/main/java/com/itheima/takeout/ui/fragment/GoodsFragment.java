@@ -21,7 +21,7 @@ import com.itheima.takeout.presenter.fragment.GoodsFragmentPresenter;
 import com.itheima.takeout.ui.ShoppingCartManager;
 import com.itheima.takeout.ui.activity.CartActivity;
 import com.itheima.takeout.ui.adapter.StickyListAdapter;
-import com.itheima.takeout.ui.adapter.MyHeadAdapter;
+import com.itheima.takeout.ui.adapter.HeadAdapter;
 
 import java.util.ArrayList;
 
@@ -78,7 +78,7 @@ public class GoodsFragment extends BaseFragment implements AdapterView.OnItemCli
     private Unbinder unbinder;
 
     private StickyListAdapter groupAdapter;
-    private MyHeadAdapter     headAdapter;
+    private HeadAdapter       headAdapter;
 
     @Inject
     GoodsFragmentPresenter presenter;
@@ -191,7 +191,7 @@ public class GoodsFragment extends BaseFragment implements AdapterView.OnItemCli
             }
         }
 
-        headAdapter = new MyHeadAdapter(headDatas);
+        headAdapter = new HeadAdapter(headDatas);
         lv.setAdapter(headAdapter);
 
         groupAdapter = new StickyListAdapter(headDatas, datas);

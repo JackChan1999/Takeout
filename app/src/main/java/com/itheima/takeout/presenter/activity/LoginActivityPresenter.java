@@ -89,8 +89,7 @@ public class LoginActivityPresenter extends BasePresenter {
             // 3.查询所有的用户数据，修改登陆状态为false
             List<UserBean> userBeen = dao.queryForAll();
             if (userBeen != null && userBeen.size() > 0) {
-                for (UserBean item :
-                        userBeen) {
+                for (UserBean item : userBeen) {
                     item.login = false;
                     dao.update(item);
                 }

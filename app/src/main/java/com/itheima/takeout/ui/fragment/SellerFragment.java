@@ -40,7 +40,7 @@ public class SellerFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_, null);
+        return inflater.inflate(R.layout.fragment_more, null);
     }
 
     @Override

@@ -38,11 +38,11 @@ import java.util.ArrayList;
  * ============================================================
  */
 
-public class MyHeadAdapter extends BaseAdapter {
+public class HeadAdapter extends BaseAdapter {
     private ArrayList<GoodsTypeInfo> headDataSet;
     private int selectedHeadIndex;
 
-    public MyHeadAdapter(ArrayList<GoodsTypeInfo> headDataSet) {
+    public HeadAdapter(ArrayList<GoodsTypeInfo> headDataSet) {
         this.headDataSet = headDataSet;
     }
 
